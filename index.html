@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blossom Super Football League</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 3rem 2rem;
+            text-align: center;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+        }
+
+        .logo {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(45deg, #2ecc71, #27ae60);
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: white;
+            font-weight: bold;
+            box-shadow: 0 8px 25px rgba(46, 204, 113, 0.3);
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            background: linear-gradient(45deg, #2c3e50, #34495e);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+        }
+
+        .subtitle {
+            font-size: 1.3rem;
+            color: #7f8c8d;
+            margin-bottom: 2rem;
+        }
+
+        .mission {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 2rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .mission h2 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            font-size: 2rem;
+        }
+
+        .mission p {
+            font-size: 1.1rem;
+            color: #555;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(45deg, #3498db, #2980b9);
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+        }
+
+        .feature-card h3 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .feature-card p {
+            color: #666;
+            font-size: 1rem;
+        }
+
+        .contact-section {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-section h2 {
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: rgba(52, 152, 219, 0.1);
+            border-radius: 8px;
+            transition: background 0.3s ease;
+        }
+
+        .contact-item:hover {
+            background: rgba(52, 152, 219, 0.2);
+        }
+
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            background: #3498db;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        .btn {
+            display: inline-block;
+            background: linear-gradient(45deg, #e74c3c, #c0392b);
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-top: 2rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 5px 15px rgba(231, 76, 60, 0.4);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(231, 76, 60, 0.6);
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 3rem;
+            padding: 2rem;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .container {
+                padding: 15px;
+            }
+            
+            header {
+                padding: 2rem 1.5rem;
+            }
+            
+            .features {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">⚽</div>
+            <h1>Blossom Super Football League</h1>
+            <p class="subtitle">Fostering Football Development, Competitiveness & Excellence</p>
+        </header>
+
+        <div class="mission">
+            <h2>Our Mission</h2>
+            <p>The Blossom Super Football League is dedicated to fostering football development, promoting healthy competition, and building a strong community of passionate players and supporters. We believe in nurturing talent at every level while maintaining the highest standards of sportsmanship and fair play.</p>
+        </div>
+
+        <div class="features">
+            <div class="feature-card">
+                <div class="feature-icon">🏆</div>
+                <h3>Competitive Excellence</h3>
+                <p>Regular tournaments and matches designed to challenge players and elevate their game to new heights.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">⚡</div>
+                <h3>Skill Development</h3>
+                <p>Professional coaching and training programs to help players develop their technical and tactical abilities.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">🤝</div>
+                <h3>Community Building</h3>
+                <p>Creating lasting friendships and connections through the beautiful game of football.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">🎯</div>
+                <h3>Fair Play</h3>
+                <p>Promoting respect, integrity, and sportsmanship both on and off the pitch.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">🌟</div>
+                <h3>Youth Development</h3>
+                <p>Special focus on nurturing young talent and providing pathways for future football stars.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">📊</div>
+                <h3>Professional Standards</h3>
+                <p>Well-organized fixtures, qualified referees, and proper facilities for the best football experience.</p>
+            </div>
+        </div>
+
+        <div class="contact-section">
+            <h2>Join the League</h2>
+            <p>Ready to be part of something special? Contact us to register your team or learn more about upcoming seasons.</p>
+            
+            <div class="contact-info">
+                <div class="contact-item">
+                    <div class="contact-icon">📧</div>
+                    <div>
+                        <strong>Email</strong><br>
+                        info@blossomsuperleague.com
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">📱</div>
+                    <div>
+                        <strong>Phone</strong><br>
+                        +234 (0) 123 456 7890
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">📍</div>
+                    <div>
+                        <strong>Location</strong><br>
+                        Lagos, Nigeria
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">📅</div>
+                    <div>
+                        <strong>Season</strong><br>
+                        Registration Now Open
+                    </div>
+                </div>
+            </div>
+            
+            <a href="mailto:info@blossomsuperleague.com" class="btn">Register Your Team</a>
+        </div>
+
+        <footer>
+            <p>&copy; 2025 Blossom Super Football League. All rights reserved.</p>
+            <p>Building champions, one match at a time.</p>
+        </footer>
+    </div>
+
+    <script>
+        // Simple smooth scrolling for any future internal links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Add some interactive elements
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animate feature cards on scroll
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+
+            // Initially hide elements and observe them
+            document.querySelectorAll('.feature-card').forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(30px)';
+                card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(card);
+            });
+        });
+    </script>
+</body>
+</html>
